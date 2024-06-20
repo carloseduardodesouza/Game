@@ -89,7 +89,7 @@ class MainActivity : AppCompatActivity() {
         var empate = 0
         for (linha in tabuleiro) {
             for (valor in linha) {
-                if (valor.equals("X") || valor.equals("O")) {
+                if (valor.equals("steve") || valor.equals("crepper")) {
                     empate++
                 }
             }
