@@ -88,9 +88,11 @@ class MainActivity : AppCompatActivity() {
 
         //Verificação das linhas e colunas 
         for (i in 0 until 3) {
+            //Verifica se há três itens iguais na linha
             if (tabuleiro[i][0] == tabuleiro[i][1] && tabuleiro[i][1] == tabuleiro[i][2]){
                 return tabuleiro[i][0]
             }
+            //Verifica se há três itens iguais na coluna
             if (tabuleiro[0][i] == tabuleiro[1][i] && tabuleiro[1][i] == tabuleiro[2][i]){
                 return tabuleiro[0][i]
             }
