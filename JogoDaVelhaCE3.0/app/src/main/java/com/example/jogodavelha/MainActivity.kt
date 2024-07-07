@@ -58,15 +58,19 @@ class MainActivity : AppCompatActivity() {
             binding.buttonOito.id -> tabuleiro[2][2] = jogadorAtual
         }
 
+        //verifica se há um vencedor após a jogada do vencedor
         var vencedor = verificarVencedor(tabuleiro)
 
         if(!vencedor.isNullOrBlank()) {
+
+            //mostra uma mensagem para o vencedor
             Toast.makeText(this, "Vencedor: " + vencedor, Toast.LENGTH_LONG).show()
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             finish()
         }
 
+        //Define a imagem de fundo do botão com base no jogador atual e alterna o jogador
         if(jogadorAtual.equals("steve")) {
             buttonSelecionado.setBackgroundResource(R.drawable.steve)
             jogadorAtual = "crepper"
@@ -74,10 +78,15 @@ class MainActivity : AppCompatActivity() {
             buttonSelecionado.setBackgroundResource(R.drawable.crepe)
             jogadorAtual = "steve"
         }
+
+        //Desativa o botão após ele ser clicado 
         buttonSelecionado.isEnabled=false
     }
 
+    //criação de uma função para verificar um vencedor.
     fun verificarVencedor(tabuleiro: Array<Array<String>>): String? {
+
+        //Verificação das linhas e colunas 
         for (i in 0 until 3) {
             if (tabuleiro[i][0] == tabuleiro[i][1] && tabuleiro[i][1] == tabuleiro[i][2]){
                 return tabuleiro[i][0]
@@ -86,6 +95,8 @@ class MainActivity : AppCompatActivity() {
                 return tabuleiro[0][i]
             }
         }
+
+        //Verificação das diagonais. 
         if (tabuleiro[0][0] == tabuleiro[1][1] && tabuleiro[1][1] == tabuleiro[2][2]){
             return tabuleiro[0][0]
         }
@@ -93,6 +104,7 @@ class MainActivity : AppCompatActivity() {
             return tabuleiro[0][2]
         }
 
+        //Caso todas as posições estejam ocupadas, e não possua um vencedor, será declado empate
         var empate = 0
         for (linha in tabuleiro) {
             for (valor in linha) {
@@ -101,7 +113,7 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
-
+        
         if(empate == 9){
             return "Empate"
         }
