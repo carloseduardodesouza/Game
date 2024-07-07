@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".InicioActivity"
+    android:background="@drawable/planofundo">
+
+
+    <ImageView
+        android:layout_width="381dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="150dp"
+        android:background="@drawable/titulo"
+        android:gravity="center" />
+
+    <Button
+        android:id="@+id/button1v1Local"
+        android:layout_width="215dp"
+        android:layout_height="wrap_content"
+        android:text="1v1 Local"
+        android:textColor="@color/white" />
+
+    <Button
+        android:id="@+id/buttonMaquina"
+        android:layout_width="215dp"
+        android:layout_height="wrap_content"
+        android:text="Jogador VS Maquina"
+        android:textColor="@color/white" />
+
+
+</LinearLayout>
