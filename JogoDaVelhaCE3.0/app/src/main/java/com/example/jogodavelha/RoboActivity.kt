@@ -111,17 +111,17 @@ class RoboActivity : AppCompatActivity() {
     fun verificarVencedor(tabuleiro: Array<Array<String>>): String? {
         // Verifica linhas e colunas
         for (i in 0 until 3) {
-            // Verifica se há três itens iguais na linha
+            //Verifica se há três itens iguais na linha
             if (tabuleiro[i][0] == tabuleiro[i][1] && tabuleiro[i][1] == tabuleiro[i][2]) {
                 return tabuleiro[i][0]
             }
-            // Verifica se há três itens iguais na coluna
+            //Verifica se há três itens iguais na coluna
             if (tabuleiro[0][i] == tabuleiro[1][i] && tabuleiro[1][i] == tabuleiro[2][i]) {
                 return tabuleiro[0][i]
             }
         }
 
-        // Verifica diagonais
+        // Verificação das diagonais
         if (tabuleiro[0][0] == tabuleiro[1][1] && tabuleiro[1][1] == tabuleiro[2][2]) {
             return tabuleiro[0][0]
         }
@@ -129,7 +129,7 @@ class RoboActivity : AppCompatActivity() {
             return tabuleiro[0][2]
         }
 
-        // Verifica a quantidade de jogadas
+       //Caso todas as posições estejam ocupadas, e não possua um vencedor, será declado empate
         var empate = 0
         for (linha in tabuleiro) {
             for (valor in linha) {
@@ -138,11 +138,9 @@ class RoboActivity : AppCompatActivity() {
                 }
             }
         }
-        // Se existem 9 jogadas e não há três letras iguais, houve um empate
         if (empate == 9) {
             return "Empate"
         }
-        // Nenhum vencedor
         return null
     }
 }
